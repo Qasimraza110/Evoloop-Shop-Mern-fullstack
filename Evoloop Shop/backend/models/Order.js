@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema(
   {
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }, // ✅ standard
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     items: [
       {
         name: String,
@@ -12,9 +12,10 @@ const orderSchema = new mongoose.Schema(
     ],
     total: { type: Number, required: true },
     stripeSessionId: { type: String, required: true },
-    status: { type: String, default: "pending" }, // pending | paid | failed
+    status: { type: String, default: "pending" },
   },
   { timestamps: true }
 );
 
 export default mongoose.model("Order", orderSchema);
+
