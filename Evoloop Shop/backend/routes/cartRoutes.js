@@ -8,10 +8,10 @@ const router = express.Router();
 router.get("/", protect, getCart);
 router.post("/", protect, updateCart);
 
-// ✅ Clear cart for logged-in user
+
 router.delete("/clear", protect, async (req, res) => {
   try {
-    await Cart.deleteMany({ userId: req.user._id }); // ✅ ab model available hai
+    await Cart.deleteMany({ userId: req.user._id }); 
     res.json({ message: "Cart cleared" });
   } catch (err) {
     console.error("Clear cart error:", err);
@@ -20,3 +20,4 @@ router.delete("/clear", protect, async (req, res) => {
 });
 
 export default router;
+
