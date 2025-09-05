@@ -4,7 +4,7 @@ import Order from "../models/Order.js";
 
 const router = express.Router();
 
-// ✅ Get logged-in user's orders
+//  Get logged-in user's orders
 router.get("/", protect, async (req, res) => {
   try {
     const orders = await Order.find({ user: req.user._id })
@@ -16,7 +16,7 @@ router.get("/", protect, async (req, res) => {
   }
 });
 
-// ✅ Get order by Stripe session ID
+//  Get order by Stripe session ID
 router.get("/session/:id", protect, async (req, res) => {
   try {
     const order = await Order.findOne({
@@ -32,3 +32,4 @@ router.get("/session/:id", protect, async (req, res) => {
 });
 
 export default router;
+
