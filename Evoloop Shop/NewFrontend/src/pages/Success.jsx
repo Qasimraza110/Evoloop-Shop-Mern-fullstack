@@ -16,10 +16,10 @@ useEffect(() => {
     return;
   }
 
-  // ✅ Payment success
+  //  Payment success
   setMessage("✅ Payment successful! Thank you for your order.");
 
-  // ✅ Fetch order from backend
+  //  Fetch order from backend
   if (token) {
     API.get(`/orders/session/${sessionId}`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -33,7 +33,7 @@ useEffect(() => {
       });
   }
 
-  // ✅ Clear cart
+  // Clear cart
   API.delete("/cart/clear", {
     headers: { Authorization: `Bearer ${token}` },
   }).then(() => {
@@ -53,3 +53,4 @@ useEffect(() => {
     </div>
   );
 }
+
