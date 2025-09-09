@@ -1,3 +1,4 @@
+// src/pages/ProductsMain.jsx
 import { useEffect, useState, useContext, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../api";
@@ -14,9 +15,9 @@ export default function ProductsMain() {
   const navigate = useNavigate();
   const productRefs = useRef({});
   const [quantities, setQuantities] = useState({});
-  const sentinelRef = useRef(null); 
+  const sentinelRef = useRef(null);
 
-  //  Fetch products
+  // Fetch products
   const fetchProducts = async (pageNumber = 1) => {
     if (isFetching || pageNumber > totalPages) return;
     setIsFetching(true);
@@ -43,7 +44,7 @@ export default function ProductsMain() {
     fetchProducts(1);
   }, []);
 
-  // Observer for infinite scroll
+  // Infinite scroll observer
   useEffect(() => {
     if (!sentinelRef.current) return;
 
@@ -64,7 +65,7 @@ export default function ProductsMain() {
     return () => observer.disconnect();
   }, [isFetching, page, totalPages]);
 
-  // Animation
+  // Fade-in animation observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
@@ -84,7 +85,8 @@ export default function ProductsMain() {
 
     return () => observer.disconnect();
   }, [products]);
-  //  Update Quantity
+
+  // Update quantity
   const updateQuantity = (id, change, stock) => {
     setQuantities(prev => {
       let newQty = (prev[id] || 1) + change;
@@ -94,7 +96,7 @@ export default function ProductsMain() {
     });
   };
 
-  // Add to Cart
+  // Add to cart
   const addToCart = async (product) => {
     if (!token) {
       navigate("/login");
@@ -161,9 +163,8 @@ export default function ProductsMain() {
                 <h3 className="font-semibold text-lg mb-1">{p.name}</h3>
                 <p className="text-gray-700 mb-3">${p.price.toLocaleString()}</p>
 
-                {/* Actions */}
+                {/* Quantity & Add to Cart */}
                 <div className="mt-auto flex flex-col gap-3">
-                  {/* Quantity + Add to Cart */}
                   <div className="flex flex-col sm:flex-row items-stretch gap-3">
                     {/* Quantity */}
                     <div className="flex items-center justify-between bg-gray-100 rounded-lg px-3 h-10 sm:w-32">
@@ -184,11 +185,11 @@ export default function ProductsMain() {
                       </button>
                     </div>
 
-                    {/* Add to Cart */}
+                    {/* Add to Cart Button */}
                     <button
                       onClick={() => addToCart(p)}
                       disabled={loadingProductId === p._id || overStock}
-                      className={`flex-1 font-semibold rounded-lg transition-colors duration-200 text-center
+                      className={`flex-1 font-semibold rounded-lg transition-colors duration-200 text-center flex items-center justify-center gap-2
                         ${
                           overStock
                             ? "bg-red-500 text-white cursor-not-allowed"
@@ -201,7 +202,12 @@ export default function ProductsMain() {
                       {overStock
                         ? "❌ Stock exceeded"
                         : loadingProductId === p._id
-                        ? "Adding..."
+                        ? (
+                          <>
+                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                            Adding...
+                          </>
+                        )
                         : loadingProductId === "success-" + p._id
                         ? "✅ Added!"
                         : "Add to Cart"}
@@ -222,11 +228,13 @@ export default function ProductsMain() {
         })}
       </div>
 
-   
+      {/* Infinite scroll loader */}
       <div ref={sentinelRef} className="h-10"></div>
-
-   
-      {isFetching && <p className="text-center py-4">Loading...</p>}
+      {isFetching && (
+        <div className="flex justify-center py-6">
+          <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
 
       <style>{`
         .fade-in-up {
