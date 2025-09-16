@@ -1,7 +1,7 @@
 import Order from "../models/Order.js";
 import Product from "../models/Product.js";
 
-// 🛒 Create Order + Update Stock
+//  Create Order + Update Stock
 export const createOrder = async (req, res) => {
   try {
     const { items, total, shipping, stripeSessionId } = req.body;
@@ -55,7 +55,7 @@ export const createOrder = async (req, res) => {
   }
 };
 
-// 👤 User orders
+// User orders
 export const getMyOrders = async (req, res) => {
   try {
     const orders = await Order.find({ user: req.user._id })
@@ -67,7 +67,7 @@ export const getMyOrders = async (req, res) => {
   }
 };
 
-// 👨‍💼 Admin: all orders
+// Admin: all orders
 export const getAllOrders = async (req, res) => {
   try {
     const orders = await Order.find()
@@ -80,7 +80,7 @@ export const getAllOrders = async (req, res) => {
   }
 };
 
-// 🚚 Admin: update order status
+// Admin: update order status
 export const updateOrderStatus = async (req, res) => {
   try {
     const { status } = req.body;
@@ -94,3 +94,4 @@ export const updateOrderStatus = async (req, res) => {
     res.status(500).json({ message: "Failed to update status" });
   }
 };
+
