@@ -15,12 +15,11 @@ export default function ProductsMain() {
   const [addingMap, setAddingMap] = useState({});
   const [categories, setCategories] = useState([]);
   const [priceFilter, setPriceFilter] = useState("all");
-  const [expandedTitles, setExpandedTitles] = useState({}); // ✅ Track See More
+  const [expandedTitles, setExpandedTitles] = useState({}); 
 
   const { token } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // Fetch categories
   const fetchCategories = async () => {
     try {
       const { data } = await API.get("/products/categories");
@@ -35,7 +34,6 @@ export default function ProductsMain() {
     }
   };
 
-  // Fetch products with filters
   const fetchProducts = async (
     pageNumber = 1,
     searchQuery = "",
@@ -51,7 +49,7 @@ export default function ProductsMain() {
       const payload = res.data || {};
       let fetchedProducts = payload.products || [];
 
-      // ✅ Price filter
+     
       if (priceFilter === "under50")
         fetchedProducts = fetchedProducts.filter((p) => p.price < 50);
       if (priceFilter === "50to100")
@@ -61,15 +59,13 @@ export default function ProductsMain() {
       if (priceFilter === "above100")
         fetchedProducts = fetchedProducts.filter((p) => p.price > 100);
 
-      // ✅ Fuzzy search (wrong keywords like "pleystation")
-      // ✅ Fuzzy search (wrong keywords like "pleystation")
 if (searchQuery) {
   const fuse = (await import("fuse.js")).default;
   const fuseSearch = new fuse(fetchedProducts, {
     keys: ["name", "description", "category"],
-    threshold: 0.6,       // fuzzy tolerance (0 = exact, 1 = very fuzzy)
-    distance: 100,        // characters ke andar matching allow
-    minMatchCharLength: 2 // chhote words ignore
+    threshold: 0.6,       
+    distance: 100,        
+    minMatchCharLength: 2 
   });
   fetchedProducts = fuseSearch.search(searchQuery).map((r) => r.item);
 }
@@ -353,3 +349,4 @@ if (searchQuery) {
     </div>
   );
 }
+
