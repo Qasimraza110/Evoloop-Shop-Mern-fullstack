@@ -1,4 +1,4 @@
-// routes/productRoutes.js
+
 import express from "express";
 import Product from "../models/Product.js";
 import {
@@ -17,11 +17,10 @@ router.post("/", addProduct);
 router.put("/:id", updateProduct);
 router.delete("/:id", deleteProduct);
 
-//  Safe categories route
 router.get("/categories", async (req, res) => {
   try {
     const categories = await Product.distinct("category");
-    // fallback default categories in case DB empty
+   
     if (!categories || categories.length === 0) {
       return res.json([
         "clothes",
@@ -50,3 +49,4 @@ router.get("/:id", async (req, res) => {
   }
 });
 export default router;
+
