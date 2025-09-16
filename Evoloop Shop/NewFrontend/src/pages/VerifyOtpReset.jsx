@@ -10,15 +10,14 @@ export default function VerifyOtpReset() {
   const location = useLocation();
   const email = location.state?.email;
 
-  if (!email) navigate("/forgot-password"); // redirect if no email
+  if (!email) navigate("/forgot-password"); 
 
   const onSubmit = async (data) => {
     setServerMsg("");
     try {
-      // Call backend to verify OTP (optional)
+  
       await API.post("/auth/verify-otp-reset", { email, otp: data.otp });
 
-      // Navigate to reset page passing both email and otp
       navigate("/reset-password", { state: { email, otp: data.otp } });
     } catch (err) {
       setServerMsg(err.response?.data?.message || err.message);
@@ -48,3 +47,4 @@ export default function VerifyOtpReset() {
     </div>
   );
 }
+
