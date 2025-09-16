@@ -10,7 +10,7 @@ export default function Inventory() {
 
   const fetchInventory = async () => {
     try {
-      const { data } = await API.get("/products"); // no token
+      const { data } = await API.get("/products"); 
       if (Array.isArray(data)) {
         setProducts(data);
       } else {
@@ -59,3 +59,4 @@ export default function Inventory() {
     </div>
   );
 }
+
