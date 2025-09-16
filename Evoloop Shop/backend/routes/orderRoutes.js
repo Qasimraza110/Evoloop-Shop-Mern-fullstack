@@ -5,20 +5,15 @@ import Order from "../models/Order.js";
 
 const router = express.Router();
 
-// 🛒 User creates order
-// Create order
+
 router.post("/", createOrder);
 
-// Admin: get all orders
 router.get("/all", getAllOrders);
 
-// Admin: update order status
 router.put("/:id/status", updateOrderStatus);
 
-// 👤 User orders
 router.get("/", protect, getMyOrders);
 
-// 🔎 Find order by Stripe session
 router.get("/session/:id", protect, async (req, res) => {
   try {
     const order = await Order.findOne({
@@ -34,3 +29,4 @@ router.get("/session/:id", protect, async (req, res) => {
 });
 
 export default router;
+
