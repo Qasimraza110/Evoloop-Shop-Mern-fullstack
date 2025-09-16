@@ -1,8 +1,9 @@
-🛒 MERN E-Commerce Store with Stripe & Admin Panel
+🛒 MERN E-Commerce Store with Stripe, Admin Panel & OTP Authentication
 
-This project is a full-featured E-Commerce web application built using the MERN stack (MongoDB, Express.js, React, Node.js), designed with a modern responsive UI and integrated with Stripe for secure online payments.
+This project is a complete E-Commerce web application built using the MERN stack (MongoDB, Express.js, React, Node.js).
+It features a modern responsive UI, Stripe payment integration, and a secure OTP-based password reset system, offering both customer-facing features and a powerful admin dashboard.
 
-It demonstrates end-to-end full stack development, from backend APIs and database modeling to frontend state management, admin management, and a polished user experience.
+It demonstrates full-stack development end-to-end: backend APIs, authentication, database modeling, frontend state management, and a smooth user experience.
 
 🔑 Core Features
 🔐 Authentication & Security
@@ -10,6 +11,8 @@ It demonstrates end-to-end full stack development, from backend APIs and databas
 User registration & login with JWT
 
 Password encryption using bcrypt
+
+OTP-based Forgot Password & Reset system
 
 Protected routes for checkout & orders
 
@@ -45,17 +48,15 @@ A powerful Admin Dashboard to manage the store:
 
 📦 Manage Products – Add, Edit, Delete products with images & categories
 
-🛒 Manage Orders – Track and update order status (coming soon)
+🛒 Manage Orders – Track and update order status
 
-👥 Manage Users – User list & access management (coming soon)
+👥 Manage Users – User list & access management
 
 ⭐ Featured Products toggle
 
 🖼️ Product categories with icons (Clothes, Electronics, Shoes, etc.)
 
 🖤 Responsive Sidebar Navigation with modern UI
-
-🎨 Built with React + TailwindCSS for a sleek and responsive design
 
 🎨 Modern UI/UX
 
@@ -68,10 +69,15 @@ Clean animations, icons, and professional layout
 🛠 Tech Stack
 
 Frontend: React (Vite), Context API, React Router, TailwindCSS
+
 Backend: Node.js, Express.js
+
 Database: MongoDB
-Authentication: JWT (JSON Web Tokens) + bcrypt
+
+Authentication: JWT + bcrypt + OTP verification
+
 Payments: Stripe API
+
 Admin Panel: React + TailwindCSS (Dashboard, Product CRUD, Sidebar Navigation)
 
-⚡ This project gives a complete E-Commerce experience with both Customer features and Admin management tools, making it a full-stack, production-ready solution.
+⚡ With OTP security, Stripe payments, and full admin control, this project provides a production-ready full-stack E-Commerce solution for real-world use.
