@@ -5,7 +5,7 @@ import { sendOtpEmail } from "../utils/email.js";
 
 
 
-// ✅ Generate JWT
+//  Generate JWT
 const generateToken = (id) => jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
 // Generate OTP
@@ -63,7 +63,7 @@ export const verifyOtp = async (req, res) => {
   });
 };
 
-// ✅ Login
+// Login
 export const login = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
@@ -78,12 +78,12 @@ export const login = async (req, res) => {
   });
 };
 
-// ✅ Get Profile
+// Get Profile
 export const getProfile = async (req, res) => {
   res.json(req.user);
 };
 
-// ✅ Update Profile (username/email)
+// Update Profile (username/email)
 export const updateProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
@@ -106,7 +106,7 @@ export const updateProfile = async (req, res) => {
   }
 };
 
-// ✅ Change Password
+//  Change Password
 export const changePassword = async (req, res) => {
   try {
     const { oldPassword, newPassword } = req.body;
@@ -179,3 +179,4 @@ export const verifyOtpReset = async (req, res) => {
   // OTP verified, allow user to reset password
   res.json({ message: "OTP verified. You can reset your password now." });
 };
+
