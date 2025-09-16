@@ -4,11 +4,12 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  otp: { type: String },               // store OTP
-  otpExpires: { type: Date },          // expiration time
-  isVerified: { type: Boolean, default: false } ,// email verified
-  resetPasswordToken: String,       // new
-resetPasswordExpires: Date,       // new
+  otp: { type: String },               
+  otpExpires: { type: Date },         
+  isVerified: { type: Boolean, default: false } ,
+  resetPasswordToken: String,      
+resetPasswordExpires: Date,      
 }, { timestamps: true });
 
 export default mongoose.model("User", userSchema);
+
