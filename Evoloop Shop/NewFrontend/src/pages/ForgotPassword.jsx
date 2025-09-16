@@ -14,7 +14,7 @@ export default function ForgotPassword() {
       const res = await API.post("/auth/forgot-password", { email: data.email });
       setServerMsg(res.data.message);
 
-      // navigate to Verify OTP page with email
+     
       navigate("/verify-otp-reset", { state: { email: data.email } });
     } catch (err) {
       setServerMsg(err.response?.data?.message || err.message);
@@ -45,3 +45,4 @@ export default function ForgotPassword() {
     </div>
   );
 }
+
