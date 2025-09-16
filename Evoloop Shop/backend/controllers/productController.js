@@ -1,13 +1,13 @@
 import Product from "../models/Product.js";
 import mongoose from "mongoose";
-import Fuse from "fuse.js"; // ✅ Import Fuse.js
+import Fuse from "fuse.js"; 
 
-// ✅ Get all products with search, category & pagination
+
 export const getProducts = async (req, res) => {
   try {
     const { search = "", category = "all", page = 1, limit = 9 } = req.query;
 
-    // Base query (category filter only)
+
     let query = {};
     if (category !== "all") {
       query.category = category;
@@ -16,7 +16,6 @@ export const getProducts = async (req, res) => {
     const allProducts = await Product.find(query);
     let filtered = allProducts;
 
-    // ✅ Apply fuzzy search in backend
     if (search) {
       const fuse = new Fuse(allProducts, {
         keys: ["name", "description", "category"],
@@ -40,7 +39,6 @@ export const getProducts = async (req, res) => {
   }
 };
 
-// ✅ Get featured products
 export const getFeaturedProducts = async (req, res) => {
   try {
     const products = await Product.find({ isFeatured: true })
@@ -52,7 +50,7 @@ export const getFeaturedProducts = async (req, res) => {
   }
 };
 
-// ✅ Get single product by ID
+
 export const getProductById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -67,7 +65,7 @@ export const getProductById = async (req, res) => {
   }
 };
 
-// ✅ Add product
+
 export const addProduct = async (req, res) => {
   try {
     const product = new Product({
@@ -81,7 +79,7 @@ export const addProduct = async (req, res) => {
   }
 };
 
-// ✅ Update product
+
 export const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -103,7 +101,6 @@ export const updateProduct = async (req, res) => {
   }
 };
 
-// ✅ Delete product
 export const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -117,3 +114,4 @@ export const deleteProduct = async (req, res) => {
     res.status(500).json({ message: "Server error while deleting product" });
   }
 };
+
