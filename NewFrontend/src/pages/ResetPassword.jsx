@@ -11,7 +11,7 @@ export default function ResetPassword() {
   const email = location.state?.email;
   const otp = location.state?.otp;
 
-  if (!email || !otp) navigate("/forgot-password"); // redirect if missing
+  if (!email || !otp) navigate("/forgot-password"); 
 
   const onSubmit = async (data) => {
     setServerMsg("");
@@ -55,3 +55,4 @@ export default function ResetPassword() {
     </div>
   );
 }
+
