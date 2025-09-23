@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import API from "../api";
 
 export default function AdminOrders() {
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]); 
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -179,3 +179,4 @@ export default function AdminOrders() {
     </div>
   );
 }
+
