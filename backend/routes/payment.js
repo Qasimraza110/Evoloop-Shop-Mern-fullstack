@@ -8,7 +8,6 @@ dotenv.config();
 const router = express.Router();
 const stripe = new Stripe(process.env.STRIPE_KEY);
 
-// ✅ Create Stripe checkout session
 router.post("/create-checkout-session", protect, async (req, res) => {
   try {
     const { items } = req.body;
@@ -35,9 +34,8 @@ router.post("/create-checkout-session", protect, async (req, res) => {
       cancel_url: `${process.env.FRONTEND_URL}/checkout`,
     });
 
-    // ✅ Save order
     const order = await Order.create({
-      user: req.user._id, // 👈 required field
+      user: req.user._id,
       items,
       total: items.reduce((sum, i) => sum + i.price * i.quantity, 0),
       stripeSessionId: session.id,
@@ -51,3 +49,4 @@ router.post("/create-checkout-session", protect, async (req, res) => {
 });
 
 export default router;
+
