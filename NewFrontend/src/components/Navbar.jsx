@@ -5,12 +5,12 @@ import { HiMenu, HiX } from "react-icons/hi";
 import { FaShoppingCart, FaUser, FaClipboardList, FaSignOutAlt } from "react-icons/fa";
 
 export default function Navbar() {
-  const { user, logout, cart } = useContext(AuthContext); // ✅ cart from context
+  const { user, logout, cart } = useContext(AuthContext); 
   const [dropdown, setDropdown] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const navigate = useNavigate();
 
-  const cartCount = cart?.length || 0; // safe count
+  const cartCount = cart?.length || 0; 
 
   return (
     <nav className="bg-black text-white px-4 md:px-8 py-4 flex justify-between items-center relative z-50">
@@ -149,3 +149,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
