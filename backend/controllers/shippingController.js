@@ -1,10 +1,9 @@
 import Shipping from "../models/Shipping.js";
 
-// ✅ Create Shipping
 export const createShipping = async (req, res) => {
   try {
     const {
-      orderId,   // optional
+      orderId,   
       fullName,
       email,
       phone,
@@ -26,8 +25,8 @@ export const createShipping = async (req, res) => {
     }
 
     const shipping = await Shipping.create({
-      user: req.user._id,        // ✅ correct
-      orderId: orderId || null,  // optional
+      user: req.user._id,       
+      orderId: orderId || null,  
       fullName,
       email,
       phone,
@@ -46,7 +45,6 @@ export const createShipping = async (req, res) => {
 };
 
 
-// ✅ Get Shipping by Order ID
 export const getShippingByOrder = async (req, res) => {
   try {
     const shipping = await Shipping.findOne({ orderId: req.params.orderId });
@@ -58,7 +56,7 @@ export const getShippingByOrder = async (req, res) => {
   }
 };
 
-// ✅ Get All Shippings (Admin)
+
 export const getAllShippings = async (req, res) => {
   try {
     const shippings = await Shipping.find()
@@ -102,4 +100,5 @@ export const updateShipping = async (req, res) => {
     console.error("Update shipping error:", error);
     res.status(500).json({ message: "Failed to update shipping" });
   }
+
 };
