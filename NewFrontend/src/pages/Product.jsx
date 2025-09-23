@@ -32,7 +32,7 @@ export default function Product() {
             headers: { Authorization: `Bearer ${token}` },
           });
           cartItems = cResp.data || [];
-          setCart(cartItems); // ⬅ context update kiya (important!)
+          setCart(cartItems); 
         }
 
         if (!mounted) return;
@@ -93,7 +93,7 @@ export default function Product() {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      // Update Context → Navbar badge turant update hoga
+      
       setCart(updatedCart);
 
       setInCartQty(prev => prev + quantity);
@@ -201,4 +201,5 @@ export default function Product() {
     </div>
   );
 }
+
 
