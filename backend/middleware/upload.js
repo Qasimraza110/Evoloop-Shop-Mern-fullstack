@@ -1,10 +1,10 @@
 import multer from "multer";
 import path from "path";
 
-// Storage config
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/"); // uploads folder
+    cb(null, "uploads/"); 
   },
   filename: (req, file, cb) => {
     cb(
@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
   },
 });
 
-// File filter (only images)
+
 const fileFilter = (req, file, cb) => {
   const allowed = /jpeg|jpg|png|webp|gif/;
   const ext = path.extname(file.originalname).toLowerCase();
@@ -31,3 +31,4 @@ export const upload = multer({
   fileFilter,
   limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
 }).array("images", 5); // 👈 field name must be "images"
+
