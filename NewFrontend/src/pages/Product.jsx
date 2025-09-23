@@ -6,8 +6,7 @@ import { AuthContext } from "../context/AuthContext";
 export default function Product() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { token, cart, setCart } = useContext(AuthContext); // ⬅ cart aur setCart le liya
-
+  const { token, cart, setCart } = useContext(AuthContext); 
   const backendURL = "http://localhost:5000";
 
   const [product, setProduct] = useState(null);
@@ -202,3 +201,4 @@ export default function Product() {
     </div>
   );
 }
+
