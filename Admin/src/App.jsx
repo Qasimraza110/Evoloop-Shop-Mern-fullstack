@@ -1,5 +1,5 @@
-// src/App.jsx
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; 
 import { useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import AdminProducts from "./pages/AdminProducts";
@@ -7,7 +7,7 @@ import AdminOrders from "./pages/AdminOrders";
 import Inventory from "./pages/Inventory";
 import User from "./pages/User";
 
-// React Icons (safe option)
+
 import { FaBoxOpen, FaShoppingCart, FaChartBar, FaUsers, FaBoxes, FaChartPie } from "react-icons/fa";
 
 function App() {
