@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa";
 
 export default function AdminProducts() {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);  
   const [saving, setSaving] = useState(false);
   const [categories, setCategories] = useState([]);
   const [form, setForm] = useState({
@@ -341,3 +341,4 @@ export default function AdminProducts() {
     </div>
   );
 }
+
