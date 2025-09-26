@@ -5,7 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import AdminProducts from "./pages/AdminProducts";
 import AdminOrders from "./pages/AdminOrders";
 import Inventory from "./pages/Inventory";
-import User from "./pages/User";
+import User from "./pages/User"; 
 
 
 import { FaBoxOpen, FaShoppingCart, FaChartBar, FaUsers, FaBoxes, FaChartPie } from "react-icons/fa";
