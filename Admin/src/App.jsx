@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; 
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";  
 import { useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import AdminProducts from "./pages/AdminProducts";
