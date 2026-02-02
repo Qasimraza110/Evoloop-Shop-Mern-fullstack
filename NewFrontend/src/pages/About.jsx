@@ -14,10 +14,12 @@ export default function About() {
             Welcome to <span className="font-semibold text-yellow-500">Evoloop Shop</span>, your trusted online
             destination for high-quality products at unbeatable prices. We’re
             dedicated to making shopping easy, fast, and enjoyable.
+            Owner Qasim started Evoloop Shop in 2025 with a vision to create a
+            customer-centric e-commerce platform. Since then, we’ve grown into a
+            vibrant community of over 10,000 satisfied customers who value our
+            commitment to quality, affordability, and exceptional service.
           </p>
         </header>
-
-        {/* Mission + Vision */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
           <section className="bg-gray-50 p-6 sm:p-8 rounded-2xl shadow hover:shadow-lg transition">
             <h2 className="text-2xl font-semibold text-gray-800 mb-3">Our Mission</h2>
@@ -73,7 +75,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* Footer / Closing */}
+       
         <footer className="text-center text-gray-600 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
           At Evoloop Shop, we believe shopping is more than buying—it’s an
           experience you should enjoy. Thank you for trusting us and being part
