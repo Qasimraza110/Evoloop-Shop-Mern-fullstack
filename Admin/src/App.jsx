@@ -106,7 +106,7 @@ function App() {
               <Route path="/inventory" element={<Inventory />} />
               <Route
                 path="/analytics"
-                element={<h2 className="text-xl">Analytics (Coming Soon)</h2>}
+                element={<h2 className="text-xl">Analytics (Coming Soon qasin is developing )</h2>}
               />
               <Route
                 path="/users"
