@@ -142,7 +142,7 @@ const { token, cart, setCart } = useContext(AuthContext);;
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      // ✅ update context (navbar badge instantly update)
+      //  update context (navbar badge instantly update)
       setCart(updatedCart);
 
       setAddingMap((m) => ({ ...m, [product._id]: "success" }));

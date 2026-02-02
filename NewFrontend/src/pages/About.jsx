@@ -6,7 +6,6 @@ export default function About() {
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-12">
       <div className="max-w-6xl mx-auto space-y-12">
 
-        {/* Hero Section */}
         <header className="text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
             About <span className="text-yellow-400">Evoloop Shop</span>

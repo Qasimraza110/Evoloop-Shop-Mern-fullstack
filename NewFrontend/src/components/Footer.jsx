@@ -76,7 +76,7 @@ export default function Footer() {
 
       {/* Bottom */}
       <div className="mt-12 border-t border-gray-700 pt-5 text-center text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} Evoloop Shop. All rights reserved.
+        &copy; {new Date().getFullYear()} Evoloop Shop. All rights reserved (Qasim sheikh).
       </div>
     </footer>
   );
