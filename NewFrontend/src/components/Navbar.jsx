@@ -19,7 +19,7 @@ export default function Navbar() {
         to="/"
         className="font-bold text-xl hover:text-yellow-400 transition-colors duration-200"
       >
-        Evoloop <span className="text-yellow-400">Shop</span>
+        Qasim Evoloop <span className="text-yellow-400">Shop</span>
       </Link>
 
       {/* Desktop Menu */}
